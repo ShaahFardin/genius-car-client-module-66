@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import loginImg from "../../assets/images/login/login.svg";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Login = () => {
+
+  const { login } = useContext(AuthContext);
+
   const handleLogin = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    login(email, password)
+    .then(result=>{
+      const user = result.user;
+      console.log(user);
+      alert("Login successful!")
+    })
+    .catch(error=>{
+      console.log(error);
+    })
   };
   return (
     <div>
@@ -35,7 +52,10 @@ const Login = () => {
                 <input type="text" name="password" placeholder="password" className="input input-bordered" />
                 <label className="label">
                   <p>
-                    New to Genius Car? <Link className="text-orange-500" to="/registration">Sign Up</Link>
+                    New to Genius Car?{" "}
+                    <Link className="text-orange-500" to="/registration">
+                      Sign Up
+                    </Link>
                   </p>
                 </label>
               </div>

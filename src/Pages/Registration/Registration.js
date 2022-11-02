@@ -32,12 +32,6 @@ const Registration = () => {
             <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Your Name</span>
-                </label>
-                <input type="text" placeholder="Name" name="name" className="input input-bordered" />
-              </div>
-              <div className="form-control">
-                <label className="label">
                   <span className="label-text">Your Email</span>
                 </label>
                 <input type="text" placeholder="email" name="email" className="input input-bordered" />
@@ -50,7 +44,7 @@ const Registration = () => {
                 <label className="label">
                   <p>
                     Already have an account?
-                    <Link className="text-orange-500" to="/registration">
+                    <Link className="text-orange-500" to="/login">
                       Login
                     </Link>
                   </p>
