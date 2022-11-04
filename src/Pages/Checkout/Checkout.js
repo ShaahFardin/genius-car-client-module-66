@@ -41,6 +41,7 @@ const Checkout = () => {
         console.log(data);
         if (data.acknowledged) {
           alert("order places successfully");
+          form.reset();
         }
       })
       .catch((error) => console.log(error));

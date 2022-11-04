@@ -6,12 +6,16 @@ const Orders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
 
-  console.log(typeof orders);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user?.email}`)
+    fetch(`http://localhost:5000/orders?email=${user?.email}`,{
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user?.email]);
+  
 
   const handleDelete = (id) => {
     const procced = window.confirm("Are you sure you want to cancel the order?");
