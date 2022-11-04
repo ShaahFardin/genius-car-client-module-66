@@ -4,12 +4,11 @@ import loginImg from "../../assets/images/login/login.svg";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Login = () => {
-
   const { login } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from  = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -18,15 +17,15 @@ const Login = () => {
     const password = form.password.value;
 
     login(email, password)
-    .then(result=>{
-      const user = result.user;
-      console.log(user);
-      alert("Login successful!")
-      navigate(from, {replace:true})
-    })
-    .catch(error=>{
-      console.log(error);
-    })
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        alert("Login successful!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div>
@@ -42,19 +41,34 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Your Name</span>
                 </label>
-                <input type="text" placeholder="Name" name="name" className="input input-bordered" />
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  className="input input-bordered"
+                />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Your Email</span>
                 </label>
-                <input type="text" placeholder="email" name="email" className="input input-bordered" />
+                <input
+                  type="text"
+                  placeholder="email"
+                  name="email"
+                  className="input input-bordered"
+                />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Your Password</span>
                 </label>
-                <input type="text" name="password" placeholder="password" className="input input-bordered" />
+                <input
+                  type="text"
+                  name="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                />
                 <label className="label">
                   <p>
                     New to Genius Car?{" "}

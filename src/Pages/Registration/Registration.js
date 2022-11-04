@@ -34,13 +34,23 @@ const Registration = () => {
                 <label className="label">
                   <span className="label-text">Your Email</span>
                 </label>
-                <input type="text" placeholder="email" name="email" className="input input-bordered" />
+                <input
+                  type="text"
+                  placeholder="email"
+                  name="email"
+                  className="input input-bordered"
+                />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Your Password</span>
                 </label>
-                <input type="text" placeholder="password" name="password" className="input input-bordered" />
+                <input
+                  type="text"
+                  placeholder="password"
+                  name="password"
+                  className="input input-bordered"
+                />
                 <label className="label">
                   <p>
                     Already have an account?
