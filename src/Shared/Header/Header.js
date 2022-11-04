@@ -10,14 +10,14 @@ const Header = () => {
     logout().then().catch();
   };
   const menuItems = (
-    <>
+    <div>
       <li>
         <Link to="/">Home</Link>
         <Link to="/registration">Registration</Link>
         {user?.email ? (
           <>
             <Link to="/orders">Orders</Link>
-            <button onClick={handleLogout} className="btn btn-ghost">
+            <button onClick={handleLogout} className="btn btn-error">
               SignOut
             </button>
           </>
@@ -27,7 +27,7 @@ const Header = () => {
           </>
         )}
       </li>
-    </>
+    </div>
   );
   return (
     <div>
