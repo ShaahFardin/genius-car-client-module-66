@@ -4,16 +4,23 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import logo from "./../../assets/logo.svg";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout=()=>{
+    logout()
+    .then()
+    .catch()
+  }
   const menuItems = (
     <>
       <li>
         <Link to="/">Home</Link>
 
         <Link to="/registration">Registration</Link>
-        {user?.uid ? (
+        {user?.email ? (
           <>
             <Link to="/orders">Orders</Link>
+            <button onClick={handleLogout} className="btn btn-ghost">SignOut</button>
           </>
         ) : (
           <>
